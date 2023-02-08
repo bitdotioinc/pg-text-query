@@ -2,10 +2,9 @@
 Utilities for generating and testing Postgres queries from natural text.
 
 ## TODO:
-- code review to improve/settle beta interfaces
-- `setup.py` and PYPI config/registration
-- prompt-engineering tests (at least an approach and some examples running against bit.io)
-- should we add pglast validation?
+- code review
+- `setup.py`
+- prompt-engineering test approach/examples
 
 # Example usage
 
