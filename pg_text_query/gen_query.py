@@ -9,8 +9,9 @@ import typing as t
 
 import openai
 import yaml
+from pglast.parser import parse_sql, ParseError
 
-from pg_text_query.errors import EnvVarError
+from pg_text_query.errors import EnvVarError, QueryGenError
 
 
 # Initialize default OpenAI completion config w/ optional user config file path
@@ -23,8 +24,12 @@ with open(PGTQ_OPENAI_CONFIG, "rb") as f:
     DEFAULT_COMPLETION_CONFIG = yaml.safe_load(f)["completion_create"]
 
 
-def generate_query(prompt: str, **kwargs: t.Any) -> str:
+def generate_query(prompt: str, validate_sql: bool = False, **kwargs: t.Any) -> str:
     """Generate a raw Postgres query string from a prompt.
+
+    If validate_sql is True, raises QueryGenError when OpenAI returns a 
+    completion that fails validation using the Postgres parser. This ensures a
+    non-empty and syntactically valid query but NOT necessarily a correct one.
     
     Completion.create is called with default config from PGTQ_OPENAI_CONFIG
     with any provided kwargs serving as parameter overrides. 
@@ -44,7 +49,25 @@ def generate_query(prompt: str, **kwargs: t.Any) -> str:
         **{**DEFAULT_COMPLETION_CONFIG, **kwargs},
     )
 
-    return response["choices"][0]["text"]
+    generated_query = response["choices"][0]["text"]
 
-if __name__ == "__main__":
-    print(DEFAULT_COMPLETION_CONFIG)
+    if validate_sql:
+        raise_if_invalid_query(generated_query)
+    
+    return generated_query
+
+
+def raise_if_invalid_query(query: str) -> None:
+    """Raised QueryGenError if query is invalid.
+    
+    Note: in this context, "invalid" includes a query that is empty or only a
+    SQL comment, which is different from the typical sense of "valid Postgres".
+    """
+    try:
+        parse_result = parse_sql(query)
+    except ParseError as e:
+        raise QueryGenError("Generated query is not valid PostgreSQL") from e
+    else:
+        # Check for any empty result (occurs if completion is a comment)
+        if not parse_result:
+            raise QueryGenError("Generated query is empty or a SQL comment")

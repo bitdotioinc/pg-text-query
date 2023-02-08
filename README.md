@@ -124,3 +124,15 @@ Output:
 ```shell
 SELECT species, island, COUNT(*) FROM penguins GROUP BY species, island
 ```
+
+## Query validation (using [`pglast`](https://pglast.readthedocs.io/en/v4/installation.html))
+```python
+
+query = raise_if_invalid_query("['not', 'valid', 'sql']")
+```
+
+Output: 
+
+```shell
+pg_text_query.errors.QueryGenError: Generated query is not valid PostgreSQL
+```
