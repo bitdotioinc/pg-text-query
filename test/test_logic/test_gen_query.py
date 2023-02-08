@@ -29,7 +29,7 @@ class QueryGenTestCase(unittest.TestCase):
         
         with self.assertRaises(QueryGenError) as ctx:
             query = generate_query(prompt, validate_sql=True)
-        self.assertIn("Generated query is not valid PostgreSQL", str(ctx.exception))
+        self.assertIn("Generated query is empty, only a comment, or invalid.", str(ctx.exception))
         mock_completion_create.assert_called_once_with(
             prompt=prompt,
             **expected_kwargs,
@@ -57,7 +57,7 @@ class QueryGenTestCase(unittest.TestCase):
         
         with self.assertRaises(QueryGenError) as ctx:
             query = generate_query(prompt, validate_sql=True)
-        self.assertIn("Generated query is empty or a SQL comment", str(ctx.exception))
+        self.assertIn("Generated query is empty, only a comment, or invalid.", str(ctx.exception))
         mock_completion_create.assert_called_once_with(
             prompt=prompt,
             **expected_kwargs,
