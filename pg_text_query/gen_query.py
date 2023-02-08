@@ -14,7 +14,7 @@ from pg_text_query.errors import EnvVarError
 
 
 # Initialize default OpenAI completion config w/ optional user config file path
-# from ENV var PGTQ_OPENAI_CONFIG
+# from env var PGTQ_OPENAI_CONFIG
 PGTQ_OPENAI_CONFIG = os.getenv(
     "PGTQ_OPENAI_CONFIG",
     os.path.join(os.path.dirname(__file__), "default_openai_config.yaml"),

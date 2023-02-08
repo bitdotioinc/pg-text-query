@@ -1,5 +1,5 @@
 # Example completion config
-# Currently just one level of keys that map to Completion.create kwargs.
+# Currently just one set of nested keys that map to Completion.create kwargs.
 # Subject to change and potentially expand to a general package config file.
 completion_create:
   model: code-cushman-001
