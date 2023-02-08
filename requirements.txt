@@ -1,0 +1,3 @@
+openai==0.26.4
+pyyaml
+psycopg2
