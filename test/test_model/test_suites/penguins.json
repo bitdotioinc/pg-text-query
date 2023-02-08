@@ -1,0 +1,17 @@
+{
+    "db_name": "bitdotio/palmerpenguins",
+    "test_cases": [
+        {
+            "id": "712de398-5121-4a28-9c02-93182b014989",
+            "text": "how many penguin records",
+            "ordered": false,
+            "expected_records": [[344]]
+        },
+        {
+            "id": "5227613f-8c06-413c-8a6b-5670d0419ae8",
+            "text": "how many penguin records for 2007",
+            "ordered": false,
+            "expected_records": [[110]]
+        }
+    ]
+}

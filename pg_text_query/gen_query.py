@@ -52,22 +52,22 @@ def generate_query(prompt: str, validate_sql: bool = False, **kwargs: t.Any) -> 
     generated_query = response["choices"][0]["text"]
 
     if validate_sql:
-        raise_if_invalid_query(generated_query)
+        if not is_valid_query(generated_query):
+            raise QueryGenError("Generated query is empty, only a comment, or invalid.")
     
     return generated_query
 
 
-def raise_if_invalid_query(query: str) -> None:
-    """Raised QueryGenError if query is invalid.
+def is_valid_query(query: str) -> bool:
+    """Validates query syntax using Postgres parser.
     
     Note: in this context, "invalid" includes a query that is empty or only a
     SQL comment, which is different from the typical sense of "valid Postgres".
     """
+    valid = True
     try:
         parse_result = parse_sql(query)
     except ParseError as e:
-        raise QueryGenError("Generated query is not valid PostgreSQL") from e
-    else:
-        # Check for any empty result (occurs if completion is a comment)
-        if not parse_result:
-            raise QueryGenError("Generated query is empty or a SQL comment")
+        valid = False
+    # Check for any empty result (occurs if completion is empty or a comment)
+    return parse_result and valid

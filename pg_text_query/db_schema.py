@@ -110,12 +110,6 @@ def get_db_schema(cur: psycopg2._psycopg.cursor, db_name: str) -> InfoSchemaCach
             table_type: t.Optional[t.Literal["tables", "views"]] = None
 
             for k, row in enumerate(rel_rows):
-                # Since we don't allow importing individual foreign tables, assume
-                # for now that if a single table within a schema is foreign, then
-                # so is the whole schema.
-                if row[table_type_idx] == "FOREIGN":
-                    schema["is_foreign"] = True
-
                 table_type = "views" if row[table_type_idx] == "VIEW" else "tables"
                 if i == 0:
                     info_schema_dict["description"] = row[db_description_idx]
