@@ -28,7 +28,7 @@ class QueryGenTestCase(unittest.TestCase):
         mock_openai_key.return_value.api_key.return_value = "FAKE_KEY"
         
         with self.assertRaises(QueryGenError) as ctx:
-            query = generate_query(prompt, validate_sql=True)
+            _ = generate_query(prompt, validate_sql=True)
         self.assertIn("Generated query is empty, only a comment, or invalid.", str(ctx.exception))
         mock_completion_create.assert_called_once_with(
             prompt=prompt,
@@ -56,7 +56,7 @@ class QueryGenTestCase(unittest.TestCase):
         mock_openai_key.return_value.api_key.return_value = "FAKE_KEY"
         
         with self.assertRaises(QueryGenError) as ctx:
-            query = generate_query(prompt, validate_sql=True)
+            _ = generate_query(prompt, validate_sql=True)
         self.assertIn("Generated query is empty, only a comment, or invalid.", str(ctx.exception))
         mock_completion_create.assert_called_once_with(
             prompt=prompt,

@@ -64,6 +64,7 @@ def is_valid_query(query: str) -> bool:
     Note: in this context, "invalid" includes a query that is empty or only a
     SQL comment, which is different from the typical sense of "valid Postgres".
     """
+    parse_result = None
     valid = True
     try:
         parse_result = parse_sql(query)
