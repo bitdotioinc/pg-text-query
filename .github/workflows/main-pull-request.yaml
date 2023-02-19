@@ -1,0 +1,21 @@
+# Runs tests upon pull request
+name: Main Pull Request
+on: 
+  pull_request: 
+    branches:
+    - main
+jobs:
+  unit-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9.16'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip -r requirements.txt
+      - name: Run unit tests
+        run: ./run_logic_tests.sh
