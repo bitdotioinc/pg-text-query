@@ -1,5 +1,6 @@
 import sys
 import os
+
 sys.path.append("../pg_text_query/")
 sys.path.append("../")
 from db_schema import get_db_schema
@@ -12,24 +13,23 @@ import json
 from dotenv import load_dotenv
 
 
-
 def main():
 
     st.write("# Natural Language to SQL Translation Prompt Playground")
     load_dotenv(override=True)
-    db = os.getenv("DB_NAME", '')
-    host = os.getenv("DB_HOST", '')
-    user = os.getenv("DB_USER", '')
-    pw = os.getenv("DB_PW", '')
-    openai_api_key = os.getenv("OPENAI_API_KEY", '')
-    
+    db = os.getenv("DB_NAME", "")
+    host = os.getenv("DB_HOST", "")
+    user = os.getenv("DB_USER", "")
+    pw = os.getenv("DB_PW", "")
+    openai_api_key = os.getenv("OPENAI_API_KEY", "")
+
     tab1, tab2 = st.tabs(["Database Connection", "Model Playground"])
     with tab1:
         load_dotenv(override=True)
-        db = os.getenv("DB_NAME", '')
-        host = os.getenv("DB_HOST", '')
-        user = os.getenv("DB_USER", '')
-        pw = os.getenv("DB_PW", '')
+        db = os.getenv("DB_NAME", "")
+        host = os.getenv("DB_HOST", "")
+        user = os.getenv("DB_USER", "")
+        pw = os.getenv("DB_PW", "")
 
         intro_text = """
 Welcome to the text-to-sql prompt playground! To get started, get
@@ -40,18 +40,22 @@ Welcome to the text-to-sql prompt playground! To get started, get
 We recommend saving these values as environment variables. Fill out the `env_template` file
         with your OpenAI API key and database credentials and save it as `.env`, and these fields will
         be populated automatically."""
-        
+
         st.info(intro_text)
-        
+
         if "sql" not in st.session_state:
             st.session_state["sql"] = ""
 
-        openai_key = st.text_input("Enter OpenAI Key", value=openai_api_key, type="password")
+        openai_key = st.text_input(
+            "Enter OpenAI Key", value=openai_api_key, type="password"
+        )
         db_host = st.text_input("Enter host", value=host, placeholder="db.bit.io")
         db_user = st.text_input("Enter username", value=user, placeholder="postgres")
         db_password = st.text_input("Enter password", value=pw, type="password")
-        db_name = st.text_input("Enter database name", value=db, placeholder="bitdotio/palmerpenguins")
-       # os.environ["OPENAI_API_KEY"] = openai_key
+        db_name = st.text_input(
+            "Enter database name", value=db, placeholder="bitdotio/palmerpenguins"
+        )
+        # os.environ["OPENAI_API_KEY"] = openai_key
 
         if st.button("**Test Connection**"):
             connection_pool = create_connection_pool(
@@ -73,7 +77,7 @@ We recommend saving these values as environment variables. Fill out the `env_tem
             connection_pool.close()
 
     with tab2:
-        with open('./example_schema.json', 'r') as f:
+        with open("./example_schema.json", "r") as f:
             example_schema = json.load(f)
         st.session_state["test_schema"] = json.dumps(example_schema)
         if st.button("Get Database Schema"):
@@ -112,25 +116,36 @@ This prompt should specify the language (PostgreSQL) and any other instructions 
             label="***Enter initialization Prompt***",
             value="-- A PostgreSQL query to return 1 and a PostgreSQL query for {user_input}\nSELECT 1;",
         )
-        st.info("""### Schema Details
+        st.info(
+            """### Schema Details
 Check this box if you want details of the database schema (see above)
 included in the prompt. Click the "Get Database Schema" button to get schema details from the connected database.
-        Otherwise and example schema will be used.""")
+        Otherwise and example schema will be used."""
+        )
 
         include_schema = st.checkbox("**Include Schema Details**", value=True)
-        st.info("""### Plain Text Query
+        st.info(
+            """### Plain Text Query
 In the box below, provide a natural language
-        statement of the desired database operation. This is what the end user would pass on for translation.""")
+        statement of the desired database operation. This is what the end user would pass on for translation."""
+        )
 
-        
-        plain_text = st.text_area("***Enter plain text query***", value='How many penguins are there?')
+        plain_text = st.text_area(
+            "***Enter plain text query***", value="How many penguins are there?"
+        )
 
-        st.info("""### Final Prompt
+        st.info(
+            """### Final Prompt
 This is the final prompt sent to the OpenAI API. It is generated automatically from the fields above. You
-        can make final edits before sending if needed.""")
+        can make final edits before sending if needed."""
+        )
 
         combined_prompt = init_prompt.replace("{user_input}", plain_text)
-        prompt_schema = describe_database(json.loads(st.session_state.get("test_schema"))) if include_schema else ""
+        prompt_schema = (
+            describe_database(json.loads(st.session_state.get("test_schema")))
+            if include_schema
+            else ""
+        )
         prompt_to_send = st.text_area(
             label="Prompt to Send",
             value=concat_prompt(
