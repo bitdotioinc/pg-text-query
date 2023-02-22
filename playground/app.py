@@ -23,7 +23,7 @@ def main():
     pw = os.getenv("DB_PW", "")
     openai_api_key = os.getenv("OPENAI_API_KEY", "")
 
-    tab1, tab2 = st.tabs(["Database Connection", "Model Playground"])
+    tab1, tab2 = st.tabs(["API Key/Connection Details", "Model Playground"])
     with tab1:
         load_dotenv(override=True)
         db = os.getenv("DB_NAME", "")
@@ -49,11 +49,11 @@ We recommend saving these values as environment variables. Fill out the `env_tem
         openai_key = st.text_input(
             "Enter OpenAI Key", value=openai_api_key, type="password"
         )
-        db_host = st.text_input("Enter host", value=host, placeholder="db.bit.io")
-        db_user = st.text_input("Enter username", value=user, placeholder="postgres")
-        db_password = st.text_input("Enter password", value=pw, type="password")
+        db_host = st.text_input("Enter Postgres host", value=host, placeholder="db.bit.io")
+        db_user = st.text_input("Enter Postgres Username", value=user, placeholder="postgres")
+        db_password = st.text_input("Enter Postgres Password", value=pw, type="password")
         db_name = st.text_input(
-            "Enter database name", value=db, placeholder="bitdotio/palmerpenguins"
+            "Enter Postgres Database Name", value=db, placeholder="bitdotio/palmerpenguins"
         )
         # os.environ["OPENAI_API_KEY"] = openai_key
 
