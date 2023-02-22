@@ -9,21 +9,37 @@ import streamlit as st
 import pandas as pd
 from db_connect import create_connection_pool
 import json
+from dotenv import load_dotenv
+
 
 
 def main():
+
+    load_dotenv(override=True)
+    db = os.getenv("DB_NAME", '')
+    host = os.getenv("DB_HOST", '')
+    user = os.getenv("DB_USER", '')
+    pw = os.getenv("DB_PW", '')
+    openai_api_key = os.getenv("OPENAI_API_KEY", '')
+    
     tab1, tab2 = st.tabs(["Database Connection", "Model Playground"])
     with tab1:
+        load_dotenv()
+        db = os.getenv("DB_NAME", '')
+        host = os.getenv("DB_HOST", '')
+        user = os.getenv("DB_USER", '')
+        pw = os.getenv("DB_PW", '')
+        
         st.info("Enter database credentials")
 
         if "sql" not in st.session_state:
             st.session_state["sql"] = ""
 
-        db_host = st.text_input("Enter host", value="db.bit.io")
-        db_user = st.text_input("Enter username")
-        db_password = st.text_input("Enter password", type="password")
-        db_name = st.text_input("Enter database name")
-        openai_key = st.text_input("Enter OpenAI Key", type="password")
+        db_host = st.text_input("Enter host", value=host, placeholder="db.bit.io")
+        db_user = st.text_input("Enter username", value=user, placeholder="postgres")
+        db_password = st.text_input("Enter password", value=pw, type="password")
+        db_name = st.text_input("Enter database name", value=db, placeholder="bitdotio/palmerpenguins")
+        openai_key = st.text_input("Enter OpenAI Key", value=openai_api_key, type="password")
         os.environ["OPENAI_API_KEY"] = openai_key
 
         if st.button("**Test Connection**"):
@@ -46,6 +62,9 @@ def main():
             connection_pool.close()
 
     with tab2:
+        with open('./example_schema.json', 'r') as f:
+            example_schema = json.load(f)
+        st.session_state["test_schema"] = json.dumps(example_schema)
         if st.button("Get Database Schema"):
             connection_pool = create_connection_pool(
                 db_host, db_user, db_password, db_name
@@ -82,15 +101,15 @@ def main():
 
         include_schema = st.checkbox("Include Schema Details", value=True)
 
-        plain_text = st.text_area("Enter plain text query")
+        plain_text = st.text_area("Enter plain text query", value='How many penguins are there?')
 
         combined_prompt = init_prompt.replace("{user_input}", plain_text)
-        prompt_schema = test_schema if include_schema else ""
+        prompt_schema = describe_database(json.loads(st.session_state.get("test_schema"))) if include_schema else ""
         prompt_to_send = st.text_area(
-            label="prompt to send",
+            label="Prompt to Send",
             value=concat_prompt(
                 f"-- Language PostgreSQL",
-                describe_database(json.loads(prompt_schema)),
+                prompt_schema,
                 combined_prompt,
             ),
             height=450,
@@ -111,7 +130,7 @@ def main():
                 connection = connection_pool.getconn()
                 cursor = connection.cursor()
                 cursor.execute(st.session_state["sql"])
-                st.code(pd.DataFrame(cursor.fetchmany(50)))
+                st.code(cursor.fetchmany(50))
 
 
 if __name__ == "__main__":
