@@ -2,7 +2,7 @@
 # Currently just one set of nested keys that map to Completion.create kwargs.
 # Subject to change and potentially expand to a general package config file.
 completion_create:
-  model: code-cushman-001
+  model: code-davinci-002
   n: 1
   temperature: 0.0
   max_tokens: 200

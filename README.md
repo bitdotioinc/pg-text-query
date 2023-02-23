@@ -2,9 +2,20 @@
 Utilities for generating and testing Postgres queries from natural text.
 
 ## TODO:
-- code review
 - `setup.py`
 - prompt-engineering test approach/examples
+
+# Contents
+
+## pg_text_query
+A python package for issuing requests for SQL translation to OpenAI LLM APIs. This package includes three main components:
+- `default_openai_config.yaml` includes the default configuration for the OpenAI model.
+- `db_schema.py` includes methods for extracting database schema information from a Postgres database to include in prompts sent to the OpenAI models.
+- `gen_query.py` includes methods for composing a final prompt from a combination of pre-specified instructions (e.g. instructions to return Postgres results), schema details, and a natural-language query (`prompt.py` provides underlying prompt construction utilities that can be used for further customization).
+
+## playground
+An app for generating and testing different combinations of schema information, initialization prompts, and user prompts for text-to-sql translation. This is a tool for rapid but unsystematic experimentation with different prompts and for building intuition on how different types of prompts affect model output.
+
 
 # Example usage
 
@@ -121,7 +132,7 @@ print(query)
 
 Output: 
 
-```shell
+```sql
 SELECT species, island, COUNT(*) FROM penguins GROUP BY species, island
 ```
 
@@ -135,4 +146,11 @@ Output:
 
 ```shell
 pg_text_query.errors.QueryGenError: Generated query is not valid PostgreSQL
+```
+
+## Prompt Playground
+
+```shell
+pip install streamlit
+streamlit playground/app.py
 ```

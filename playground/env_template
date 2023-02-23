@@ -1,0 +1,5 @@
+OPENAI_API_KEY=
+DB_NAME=bitdotio/palmerpenguins
+DB_HOST=db.bit.io
+DB_USER=
+DB_PW=
