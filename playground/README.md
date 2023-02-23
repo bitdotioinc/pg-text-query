@@ -8,6 +8,8 @@ The prompt playground is built using [streamlit](https://streamlit.io/) and requ
 
 ```bash
 pip install streamlit
+pip install psycopg
+pip install psycopg_pool
 ```
 
 You will also need to obtain an API key from OpenAI. Read about the OpenAI APIs [here](https://openai.com/api/). Make sure to read about and understand the [API Pricing](https://openai.com/api/pricing/). This prompt playground uses the [OpenAI Codex](https://platform.openai.com/docs/models/codex) models, which are currently in free beta, but they will not always be free to use.
