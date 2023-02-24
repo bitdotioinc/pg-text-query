@@ -2,6 +2,8 @@
 
 An app for generating and testing different combinations of schema information, initialization prompts, and user prompts for text-to-sql translation.
 
+![Model Playground](playground_screenshot.png)
+
 ## Requirements
 
 The prompt playground is built using [streamlit](https://streamlit.io/) and requires streamlit to run. You can install streamlit with:
