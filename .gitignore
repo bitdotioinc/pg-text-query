@@ -1,3 +1,4 @@
 .env
 venv
 *.pyc
+.vscode/settings.json
