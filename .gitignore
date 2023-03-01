@@ -2,3 +2,4 @@
 venv
 *.pyc
 .vscode/settings.json
+*.log
