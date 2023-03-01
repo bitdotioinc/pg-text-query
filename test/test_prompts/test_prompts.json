@@ -1,0 +1,36 @@
+{
+    "easy": [
+        {
+            "id": "e1",
+            "prompt": "What is the average bill length for Adelie penguins?",
+            "expected_outputs": ["SELECT AVG(bill_length_mm) FROM penguins WHERE species = 'Adelie'"],
+            "schema": "penguin_schema.json"
+        },
+        {
+            "id": "e2",
+            "prompt": "What is the maximum body mass for Chinstrap penguins?",
+            "expected_outputs": ["SELECT MAX(body_mass_g) FROM penguins WHERE species = 'Chinstrap'"],
+            "schema": "penguin_schema.json"
+        },
+        {
+            "id": "e3",
+            "prompt": "What is the minimum flipper length for Gentoo penguins?",
+            "expected_outputs": ["SELECT MIN(flipper_length_mm) FROM penguins WHERE species = 'Gentoo'"],
+            "schema": "penguin_schema.json"
+        },
+        {
+            "id": "e4",
+            "prompt": "What is the total number of penguins in the dataset?",
+            "expected_outputs": ["SELECT COUNT(*) FROM penguins"],
+            "schema": "penguin_schema.json"
+        }
+    ],
+
+    "one_test": [
+        {
+            "id": "onetest",
+            "prompt": "What is the total number of penguins in the dataset?",
+            "expected_outputs": ["SELECT COUNT(*) FROM penguins"],
+            "schema": "penguin_schema.json"
+        }]
+}
