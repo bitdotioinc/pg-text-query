@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from db_connect import create_connection_pool
 # Get the absolute path of the parent directory
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+dirname = os.path.dirname(__file__)
 
 # Add the parent directory to the system path
 sys.path.append(parent_dir)
@@ -64,6 +65,17 @@ We recommend saving these values as environment variables. Fill out the `env_tem
         db_name = st.text_input(
             "Enter Postgres Database Name", value=db, placeholder="bitdotio/palmerpenguins"
         )
+
+        # Update the database connection variables with the user's input
+        if db_name != db:
+            db = db_name
+        if db_host != host:
+            host = db_host
+        if db_user != user:
+            user = db_user
+        if db_password != pw:
+            pw = db_password
+
         os.environ["OPENAI_API_KEY"] = openai_key
 
         if st.button("**Test Connection**"):
@@ -112,35 +124,27 @@ included in the prompt. Click the "Get Database Schema" button to get schema
         include_schema = st.checkbox("**Include Schema Details**", value=True)
 
         if include_schema:
-            with open("./example_schema.json", "r") as f:
-                example_schema = json.load(f)
-
-            st.session_state["test_schema"] = json.dumps(example_schema, indent=2)
-
-            st.write("""*If you've connected to a live database and want to use that database's
-schema details, press the button below to retrieve that database's schema*""")
 
             if st.button("Get Database Schema"):
                 connection_pool = create_connection_pool(
                     db_host, db_user, db_password, db_name
                 )
                 curs = connection_pool.getconn().cursor()
-                st.session_state["schema_from_db"] = get_db_schema(curs, db_name)
-                with st.expander("**Database Schema**"):
-                    st.text_area(
-                        "*Review and Edit Schema*",
-                        value=json.dumps(st.session_state["schema_from_db"], indent=2),
-                        key="test_schema",
-                        height=900,
-                    )
-            else:
-                with st.expander("**Database Schema**"):
-                    st.text_area(
-                        "*Review and Edit Schema*",
-                        value=st.session_state.get("test_schema", ""),
-                        key="test_schema",
-                        height=900,
-                    )
+                schema_from_db = get_db_schema(curs, db_name)
+                st.session_state["test_schema"] = json.dumps(schema_from_db, indent=2)  # Update test_schema value
+            elif not st.session_state.get("test_schema"):
+                with open(os.path.join(dirname, "example_schema.json"), "r") as f:
+                    example_schema = json.load(f)
+                st.session_state["test_schema"] = json.dumps(example_schema, indent=2)
+
+            with st.expander("**Database Schema**"):
+                schema_text_area = st.text_area(
+                    "*Review and Edit Schema*",
+                    value=st.session_state["test_schema"],
+                    height=900,
+                )
+            # Save schema shown to a variable accessible elsewhere in the app
+            st.session_state["test_schema"] = schema_text_area
 
         st.write(
             """### Plain Text Query
