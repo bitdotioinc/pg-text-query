@@ -101,7 +101,7 @@ class PromptTestCase(unittest.TestCase):
         expected = "\n".join(
             [
                 "-- Language PostgreSQL",
-                "-- Table penguins, columns = [bill_length_mm double precision, bill_depth_mm double precision, flipper_length_mm bigint, body_mass_g bigint, year bigint, species text, island text, sex text]",
+                "-- Table = \"penguins\", columns = [bill_length_mm double precision, bill_depth_mm double precision, flipper_length_mm bigint, body_mass_g bigint, year bigint, species text, island text, sex text]",
                 "-- A PostgreSQL query to return 1 and a PostgreSQL query for how many penguins are there?",
                 "SELECT 1;",
             ]
