@@ -74,13 +74,13 @@ def _describe_cols(cols: t.List[t.Dict[t.Any, t.Any]], include_types: bool) -> s
 
 
 def _describe_table(schema_name: str, table_name: str) -> str:
-    return table_name if schema_name == "public" else f"{schema_name}.{table_name}"
+    return f'"{table_name}"' if schema_name == "public" else f'"{schema_name}"."{table_name}"'
 
 
 def _describe_schema(schema: t.Dict[t.Any, t.Any], include_types: bool = True) -> str:
     return "\n".join(
         [
-            f"-- Table {_describe_table(schema['name'], t['name'])}, columns = [{_describe_cols(t['columns'], include_types)}]"
+            f"-- Table = {_describe_table(schema['name'], t['name'])}, columns = [{_describe_cols(t['columns'], include_types)}]"
             for t in schema["tables"]
         ]
     )
