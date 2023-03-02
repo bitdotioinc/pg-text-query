@@ -1,0 +1,144 @@
+{
+  "name": "bitdotio/nfl_combine",
+  "description": null,
+  "schemata": [
+    {
+      "name": "bitdotio/nfl_combine",
+      "description": "Description: NFL combine test results and draft rounds.\nDocumentation: This table combines 2021 NFL Combine and draft data.\n\nSources:\n[https://nflcombineresults.com/](https://nflcombineresults.com/)\n[https://www.nfl.com/draft/tracker/picks/](https://www.nfl.com/draft/tracker/picks/)\n",
+      "is_foreign": false,
+      "tables": [
+        {
+          "name": "2021_combine_and_draft",
+          "description": null,
+          "columns": [
+            {
+              "name": "draft_round",
+              "ordinal_position": 13,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Draft round (only if drafted in first two rounds)."
+            },
+            {
+              "name": "year",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Year of the combine and draft"
+            },
+            {
+              "name": "name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": "Name"
+            },
+            {
+              "name": "college",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": "College"
+            },
+            {
+              "name": "position",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": "Position"
+            },
+            {
+              "name": "height_in",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Height (in)"
+            },
+            {
+              "name": "weight_lb",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Weight (lb)"
+            },
+            {
+              "name": "40_yard",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "40-yard dash time (seconds)"
+            },
+            {
+              "name": "bench_press",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Number of reps bench pressing 225 lb"
+            },
+            {
+              "name": "vert_leap_in",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Vertical leap (in)"
+            },
+            {
+              "name": "broad_jump_in",
+              "ordinal_position": 10,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Broad jump (in)"
+            },
+            {
+              "name": "shuttle",
+              "ordinal_position": 11,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Time to complete 20-yard shuttle run."
+            },
+            {
+              "name": "3_cone",
+              "ordinal_position": 12,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Time to complete a 3-cone agility drill."
+            }
+          ]
+        }
+      ],
+      "views": []
+    },
+    {
+      "name": "public",
+      "description": "standard public schema",
+      "is_foreign": false,
+      "tables": [],
+      "views": []
+    }
+  ]
+}

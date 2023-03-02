@@ -1,0 +1,149 @@
+{
+  "name": "bitdotio/noaa-global-co2-trends",
+  "description": "# Global Atmospheric CO2\n---\n\n## Description\nThese tables show daily, monthly, and annual estimated global atmospheric CO2 concentration expressed in parts per million (ppm).\n\n## Usage Notes\nThe global estimates are\n\n\n>\u00a0based on measurements from a subset of network sites. Only sites where samples are predominantly of well-mixed marine boundary layer (MBL) air representative of a large volume of the atmosphere are considered. These \u201cMBL\u201d sites are typically at remote marine sea level locations with prevailing onshore winds.\u00a0Measurements from sites at altitude (e.g., Mauna Loa) and from sites close to anthropogenic and natural sources and sinks (e.g., Park Falls, Wisconsin) are excluded from the global estimate. The use of MBL data results in a low-noise representation of the global trend and allows us to make the estimate directly from the data without the need for an atmospheric transport model.\n\n\n(*To access the\u00a0NOAA/GML calculation of global means,\u00a0click [here](https://gml.noaa.gov/ccgg/about/global_means.html)*.)\n",
+  "schemata": [
+    {
+      "name": "public",
+      "description": "standard public schema",
+      "is_foreign": false,
+      "tables": [
+        {
+          "name": "annual",
+          "description": "# Annual Estimate of Global CO2 Concentration\nThis table contains the data on the annual estimate of global CO2 concentration.\n\n## Usage Notes\n\n\nUncertainty (`unc`) is estimated\n\n\n> using a monte carlo technique that computes 100 global annual averages each time using a slightly different set of measurement records from the NOAA ESLR cooperative air sampling network. The reported uncertainty is the mean of the standard deviations for each annual average using this technique. Please see Conway et al.\n\n\n\n## Data Source\nEd Dlugokencky and Pieter Tans, NOAA/GML (gml.noaa.gov/ccgg/trends/). Accessed August 29, 2022.\n",
+          "columns": [
+            {
+              "name": "year",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Year"
+            },
+            {
+              "name": "mean",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Global mean co2 concentration estimate (ppm)"
+            },
+            {
+              "name": "unc",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Uncertainty in estimate"
+            }
+          ]
+        },
+        {
+          "name": "daily",
+          "description": "# Daily Estimate of Global CO2 Concentration\nThis table shows the daily estimated global carbon dioxide.\n\n## Usage Notes\n\n\nThe `trend` column shows a modeled/smoothed value capturing the \"background\" concentration of CO2 in the atmosphere with the goal of excluding short-term fluctuations.\n\n\n\n>\u00a0Since the objective in many studies of CO2\u00a0is to determine the 'background' distribution in the atmosphere without influence by local sources and sinks, a method of filtering or smoothing the data is desired in order to investigate the signals occuring in the record on different time scales. ([source](https://gml.noaa.gov/ccgg/mbl/crvfit/crvfit.html))\n\n\nFor more details on trend modeling, see the [NOAA Curve Fitting Methods Documentation](https://gml.noaa.gov/ccgg/trends/gl_trend.html)\n\n\n\n## Data Source\nEd Dlugokencky and Pieter Tans, NOAA/GML (gml.noaa.gov/ccgg/trends/). Accessed August 29, 2022.\n",
+          "columns": [
+            {
+              "name": "year",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Year"
+            },
+            {
+              "name": "month",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Month number"
+            },
+            {
+              "name": "day",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Day of month"
+            },
+            {
+              "name": "smoothed",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Smoothed seasonal cycle"
+            },
+            {
+              "name": "trend",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Smoothed de-seasonalized trend value. See details here:\u00a0https://gml.noaa.gov/ccgg/mbl/crvfit/crvfit.html"
+            }
+          ]
+        },
+        {
+          "name": "monthly",
+          "description": "# Monthly Estimate of Global CO2 Concentration\nThis repository exhibits the monthly estimate of global carbon dioxide concentration.\n\n## Usage Notes\n\n\nThe `trend` column shows a modeled/smoothed value capturing the \"background\" concentration of CO2 in the atmosphere with the goal of excluding short-term fluctuations.\n\n\n\n>\u00a0Since the objective in many studies of CO2\u00a0is to determine the 'background' distribution in the atmosphere without influence by local sources and sinks, a method of filtering or smoothing the data is desired in order to investigate the signals occuring in the record on different time scales. ([source](https://gml.noaa.gov/ccgg/mbl/crvfit/crvfit.html))\n\n\nFor more details on trend modeling, see the [NOAA Curve Fitting Methods Documentation](https://gml.noaa.gov/ccgg/trends/gl_trend.html)\n\n\n\n## Data Source\nEd Dlugokencky and Pieter Tans, NOAA/GML (gml.noaa.gov/ccgg/trends/). Accessed August 29, 2022.\n",
+          "columns": [
+            {
+              "name": "year",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Year"
+            },
+            {
+              "name": "month",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "Month number"
+            },
+            {
+              "name": "decimal",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Year + month as decimal fraction of year"
+            },
+            {
+              "name": "average",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Average measured atmospheric CO2 in parts per million"
+            },
+            {
+              "name": "trend",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "Smoothed trend value. See details here:\u00a0https://gml.noaa.gov/ccgg/mbl/crvfit/crvfit.html"
+            }
+          ]
+        }
+      ],
+      "views": []
+    }
+  ]
+}
