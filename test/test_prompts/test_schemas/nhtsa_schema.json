@@ -1,0 +1,3326 @@
+{
+  "name": "bitdotio/nhtsa_ads_crashes",
+  "description": null,
+  "schemata": [
+    {
+      "name": "public",
+      "description": "standard public schema",
+      "is_foreign": false,
+      "tables": [
+        {
+          "name": "ads_incident_report_data",
+          "description": "# ADS Incident Report Data\nThis repository shows the observations from the reported crashes of automated driving systems (ADS)-equipped vehicles.\n\n## Usage Notes\nFrom the National Highway Traffic Safety Administration, US Department of Transportation. If there is confusion in classifying the onboard automation system\n\n>  as ADS is mistakenly classified as Level 2 ADAS (and vice versa), the values from the latest report are used. Only those clearly identified ADS-equipped vehicles are included in the charts. There may be cases where more than one report is submitted for a crash, resulting in duplicate counts if sufficient information is not available to match the reports to the same crash. \n \n## Data Source\nNational Highway Traffic Safety Administration, US Department of Transportation. \"Standing General Order on Crash Reporting\". Nhtsa.gov. Accessed June 16, 2022. https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting\n",
+          "columns": [
+            {
+              "name": "Report ID",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Version",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Reporting Entity",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Type",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Month",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Year",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Submission Date",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "vin",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "VIN - Unknown",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Serial Number",
+              "ordinal_position": 10,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "make",
+              "ordinal_position": 11,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "model",
+              "ordinal_position": 12,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model - Unknown",
+              "ordinal_position": 13,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model Year",
+              "ordinal_position": 14,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model Year - Unknown",
+              "ordinal_position": 15,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Same Vehicle ID",
+              "ordinal_position": 16,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "mileage",
+              "ordinal_position": 17,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Mileage - Unknown",
+              "ordinal_position": 18,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Driver / Operator Type",
+              "ordinal_position": 19,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version",
+              "ordinal_position": 20,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version - Unknown",
+              "ordinal_position": 21,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version CBI",
+              "ordinal_position": 22,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADS Equipped?",
+              "ordinal_position": 23,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Automation System Engaged?",
+              "ordinal_position": 24,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Operating Entity",
+              "ordinal_position": 25,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Operating Entity - Unknown",
+              "ordinal_position": 26,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Complaint/Claim",
+              "ordinal_position": 27,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Telematics",
+              "ordinal_position": 28,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Law Enforcement",
+              "ordinal_position": 29,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Field Report",
+              "ordinal_position": 30,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Testing",
+              "ordinal_position": 31,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Media",
+              "ordinal_position": 32,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Other",
+              "ordinal_position": 33,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Other Text",
+              "ordinal_position": 34,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Date",
+              "ordinal_position": 35,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Date - Unknown",
+              "ordinal_position": 36,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Notice Received Date",
+              "ordinal_position": 37,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Time (24:00)",
+              "ordinal_position": 38,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Time - Unknown",
+              "ordinal_position": 39,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Same Incident ID",
+              "ordinal_position": 40,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "latitude",
+              "ordinal_position": 41,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Latitude  - Unknown",
+              "ordinal_position": 42,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "longitude",
+              "ordinal_position": 43,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Longitude - Unknown",
+              "ordinal_position": 44,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address",
+              "ordinal_position": 45,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Address - Unknown",
+              "ordinal_position": 46,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "city",
+              "ordinal_position": 47,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "City - Unknown",
+              "ordinal_position": 48,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "state",
+              "ordinal_position": 49,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Zip Code",
+              "ordinal_position": 50,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Zip Code - Unknown",
+              "ordinal_position": 51,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Type",
+              "ordinal_position": 52,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Surface",
+              "ordinal_position": 53,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Description",
+              "ordinal_position": 54,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Posted Speed Limit (MPH)",
+              "ordinal_position": 55,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Posted Speed Limit - Unknown",
+              "ordinal_position": 56,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "lighting",
+              "ordinal_position": 57,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Clear",
+              "ordinal_position": 58,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Snow",
+              "ordinal_position": 59,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Cloudy",
+              "ordinal_position": 60,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Fog/Smoke",
+              "ordinal_position": 61,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Rain",
+              "ordinal_position": 62,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Severe Wind",
+              "ordinal_position": 63,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Unknown",
+              "ordinal_position": 64,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Other",
+              "ordinal_position": 65,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Other Text",
+              "ordinal_position": 66,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Crash With",
+              "ordinal_position": 67,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Highest Injury Severity",
+              "ordinal_position": 68,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Property Damage?",
+              "ordinal_position": 69,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Pre-Crash Movement",
+              "ordinal_position": 70,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Any Air Bags Deployed?",
+              "ordinal_position": 71,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Was Vehicle Towed?",
+              "ordinal_position": 72,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear Left",
+              "ordinal_position": 73,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Left",
+              "ordinal_position": 74,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front Left",
+              "ordinal_position": 75,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear",
+              "ordinal_position": 76,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Top",
+              "ordinal_position": 77,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front",
+              "ordinal_position": 78,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear Right",
+              "ordinal_position": 79,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Right",
+              "ordinal_position": 80,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front Right",
+              "ordinal_position": 81,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Bottom",
+              "ordinal_position": 82,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Unknown",
+              "ordinal_position": 83,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Pre-Crash Movement",
+              "ordinal_position": 84,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Any Air Bags Deployed?",
+              "ordinal_position": 85,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Was Vehicle Towed?",
+              "ordinal_position": 86,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Were All Passengers Belted?",
+              "ordinal_position": 87,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Precrash Speed (MPH)",
+              "ordinal_position": 88,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Pre-crash Speed - Unknown",
+              "ordinal_position": 89,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear Left",
+              "ordinal_position": 90,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Left",
+              "ordinal_position": 91,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front Left",
+              "ordinal_position": 92,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear",
+              "ordinal_position": 93,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Top",
+              "ordinal_position": 94,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front",
+              "ordinal_position": 95,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear Right",
+              "ordinal_position": 96,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Right",
+              "ordinal_position": 97,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front Right",
+              "ordinal_position": 98,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Bottom",
+              "ordinal_position": 99,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Unknown",
+              "ordinal_position": 100,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - EDR",
+              "ordinal_position": 101,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Police Rpt",
+              "ordinal_position": 102,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Telematics",
+              "ordinal_position": 103,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Complaints",
+              "ordinal_position": 104,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Video",
+              "ordinal_position": 105,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Other",
+              "ordinal_position": 106,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - No Data",
+              "ordinal_position": 107,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Unknown",
+              "ordinal_position": 108,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Law Enforcement Investigating?",
+              "ordinal_position": 109,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Agency",
+              "ordinal_position": 110,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Agency - Unknown",
+              "ordinal_position": 111,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Rep Ent Or Mfr Investigating?",
+              "ordinal_position": 112,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Name",
+              "ordinal_position": 113,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Name - Unknown",
+              "ordinal_position": 114,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Phone",
+              "ordinal_position": 115,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Phone - Unknown",
+              "ordinal_position": 116,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Email",
+              "ordinal_position": 117,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Email - Unknown",
+              "ordinal_position": 118,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Within ODD?",
+              "ordinal_position": 119,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Within ODD? - CBI",
+              "ordinal_position": 120,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "narrative",
+              "ordinal_position": 121,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Narrative - CBI?",
+              "ordinal_position": 122,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "level_2_adas_incident_report",
+          "description": "# Level 2 ADAS Incident Report Data\nThis table contains the observations from reported crashes of Level 2 ADAS-equipped vehicles.\n\n## Usage Notes\nFrom the National Highway Traffic Safety Administration, US Department of Transportation. Level 2 ADAS crashes are recorded \n\n> when the reporting entity responds \"No to the ADS Equipped? field in the incident report. Reports where the latest ADS Equipped? field is blank or contains Unknown, see Narrative or Yes have not been included in these charts. There may be cases where more than one report is submitted for a crash, resulting in duplicate counts if sufficient information is not available to match the reports to the same crash.\n\n \n## Data Source\nNational Highway Traffic Safety Administration, US Department of Transportation. \"Standing General Order on Crash Reporting\". Nhtsa.gov. Accessed June 16, 2022. https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting",
+          "columns": [
+            {
+              "name": "Report ID",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Version",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Reporting Entity",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Type",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Month",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Year",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Submission Date",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "vin",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "VIN - Unknown",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Serial Number",
+              "ordinal_position": 10,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "make",
+              "ordinal_position": 11,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "model",
+              "ordinal_position": 12,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model - Unknown",
+              "ordinal_position": 13,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model Year",
+              "ordinal_position": 14,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model Year - Unknown",
+              "ordinal_position": 15,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Same Vehicle ID",
+              "ordinal_position": 16,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "mileage",
+              "ordinal_position": 17,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Mileage - Unknown",
+              "ordinal_position": 18,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Driver / Operator Type",
+              "ordinal_position": 19,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version",
+              "ordinal_position": 20,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version - Unknown",
+              "ordinal_position": 21,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version CBI",
+              "ordinal_position": 22,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADS Equipped?",
+              "ordinal_position": 23,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Automation System Engaged?",
+              "ordinal_position": 24,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Operating Entity",
+              "ordinal_position": 25,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Operating Entity - Unknown",
+              "ordinal_position": 26,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Complaint/Claim",
+              "ordinal_position": 27,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Telematics",
+              "ordinal_position": 28,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Law Enforcement",
+              "ordinal_position": 29,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Field Report",
+              "ordinal_position": 30,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Testing",
+              "ordinal_position": 31,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Media",
+              "ordinal_position": 32,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Other",
+              "ordinal_position": 33,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Other Text",
+              "ordinal_position": 34,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Date",
+              "ordinal_position": 35,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Date - Unknown",
+              "ordinal_position": 36,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Notice Received Date",
+              "ordinal_position": 37,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Time (24:00)",
+              "ordinal_position": 38,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Time - Unknown",
+              "ordinal_position": 39,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Same Incident ID",
+              "ordinal_position": 40,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "latitude",
+              "ordinal_position": 41,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Latitude  - Unknown",
+              "ordinal_position": 42,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "longitude",
+              "ordinal_position": 43,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Longitude - Unknown",
+              "ordinal_position": 44,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address",
+              "ordinal_position": 45,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Address - Unknown",
+              "ordinal_position": 46,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "city",
+              "ordinal_position": 47,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "City - Unknown",
+              "ordinal_position": 48,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "state",
+              "ordinal_position": 49,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Zip Code",
+              "ordinal_position": 50,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Zip Code - Unknown",
+              "ordinal_position": 51,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Type",
+              "ordinal_position": 52,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Surface",
+              "ordinal_position": 53,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Description",
+              "ordinal_position": 54,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Posted Speed Limit (MPH)",
+              "ordinal_position": 55,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Posted Speed Limit - Unknown",
+              "ordinal_position": 56,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "lighting",
+              "ordinal_position": 57,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Clear",
+              "ordinal_position": 58,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Snow",
+              "ordinal_position": 59,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Cloudy",
+              "ordinal_position": 60,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Fog/Smoke",
+              "ordinal_position": 61,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Rain",
+              "ordinal_position": 62,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Severe Wind",
+              "ordinal_position": 63,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Unknown",
+              "ordinal_position": 64,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Other",
+              "ordinal_position": 65,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Other Text",
+              "ordinal_position": 66,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Crash With",
+              "ordinal_position": 67,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Highest Injury Severity",
+              "ordinal_position": 68,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Property Damage?",
+              "ordinal_position": 69,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Pre-Crash Movement",
+              "ordinal_position": 70,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Any Air Bags Deployed?",
+              "ordinal_position": 71,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Was Vehicle Towed?",
+              "ordinal_position": 72,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear Left",
+              "ordinal_position": 73,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Left",
+              "ordinal_position": 74,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front Left",
+              "ordinal_position": 75,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear",
+              "ordinal_position": 76,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Top",
+              "ordinal_position": 77,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front",
+              "ordinal_position": 78,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear Right",
+              "ordinal_position": 79,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Right",
+              "ordinal_position": 80,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front Right",
+              "ordinal_position": 81,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Bottom",
+              "ordinal_position": 82,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Unknown",
+              "ordinal_position": 83,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Pre-Crash Movement",
+              "ordinal_position": 84,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Any Air Bags Deployed?",
+              "ordinal_position": 85,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Was Vehicle Towed?",
+              "ordinal_position": 86,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Were All Passengers Belted?",
+              "ordinal_position": 87,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Precrash Speed (MPH)",
+              "ordinal_position": 88,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Pre-crash Speed - Unknown",
+              "ordinal_position": 89,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear Left",
+              "ordinal_position": 90,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Left",
+              "ordinal_position": 91,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front Left",
+              "ordinal_position": 92,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear",
+              "ordinal_position": 93,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Top",
+              "ordinal_position": 94,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front",
+              "ordinal_position": 95,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear Right",
+              "ordinal_position": 96,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Right",
+              "ordinal_position": 97,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front Right",
+              "ordinal_position": 98,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Bottom",
+              "ordinal_position": 99,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Unknown",
+              "ordinal_position": 100,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - EDR",
+              "ordinal_position": 101,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Police Rpt",
+              "ordinal_position": 102,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Telematics",
+              "ordinal_position": 103,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Complaints",
+              "ordinal_position": 104,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Video",
+              "ordinal_position": 105,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Other",
+              "ordinal_position": 106,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - No Data",
+              "ordinal_position": 107,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Unknown",
+              "ordinal_position": 108,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Law Enforcement Investigating?",
+              "ordinal_position": 109,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Agency",
+              "ordinal_position": 110,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Agency - Unknown",
+              "ordinal_position": 111,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Rep Ent Or Mfr Investigating?",
+              "ordinal_position": 112,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Name",
+              "ordinal_position": 113,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Name - Unknown",
+              "ordinal_position": 114,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Phone",
+              "ordinal_position": 115,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Phone - Unknown",
+              "ordinal_position": 116,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Email",
+              "ordinal_position": 117,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Email - Unknown",
+              "ordinal_position": 118,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Within ODD?",
+              "ordinal_position": 119,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Within ODD? - CBI",
+              "ordinal_position": 120,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "narrative",
+              "ordinal_position": 121,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Narrative - CBI?",
+              "ordinal_position": 122,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "other_incident_report_data",
+          "description": "# Other Incident Report Data\nThis repository shows the other incident report not falling under ADS or Level 2 ADAS.\n\n## Usage Notes\nFrom the National Highway Traffic Safety Administration, US Department of Transportation. Entities subject to the General Order manufacture or operate\n> different types of vehicles with different capabilities in various locations. The number of vehicles an entity has on the road, its access to crash data, operating location and many other factors could all impact a comparison.\n \n## Data Source\nNational Highway Traffic Safety Administration, US Department of Transportation. \"Standing General Order on Crash Reporting\". Nhtsa.gov. Accessed June 16, 2022. https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting\n",
+          "columns": [
+            {
+              "name": "Report ID",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Version",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Reporting Entity",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Type",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Month",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Year",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Report Submission Date",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "vin",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "VIN - Unknown",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Serial Number",
+              "ordinal_position": 10,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "make",
+              "ordinal_position": 11,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "model",
+              "ordinal_position": 12,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model - Unknown",
+              "ordinal_position": 13,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model Year",
+              "ordinal_position": 14,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Model Year - Unknown",
+              "ordinal_position": 15,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Same Vehicle ID",
+              "ordinal_position": 16,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "mileage",
+              "ordinal_position": 17,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Mileage - Unknown",
+              "ordinal_position": 18,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Driver / Operator Type",
+              "ordinal_position": 19,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version",
+              "ordinal_position": 20,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version - Unknown",
+              "ordinal_position": 21,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADAS/ADS Version CBI",
+              "ordinal_position": 22,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "ADS Equipped?",
+              "ordinal_position": 23,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Automation System Engaged?",
+              "ordinal_position": 24,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Operating Entity",
+              "ordinal_position": 25,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Operating Entity - Unknown",
+              "ordinal_position": 26,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Complaint/Claim",
+              "ordinal_position": 27,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Telematics",
+              "ordinal_position": 28,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Law Enforcement",
+              "ordinal_position": 29,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Field Report",
+              "ordinal_position": 30,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Testing",
+              "ordinal_position": 31,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Media",
+              "ordinal_position": 32,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Other",
+              "ordinal_position": 33,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Source - Other Text",
+              "ordinal_position": 34,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Date",
+              "ordinal_position": 35,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Date - Unknown",
+              "ordinal_position": 36,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Notice Received Date",
+              "ordinal_position": 37,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Time (24:00)",
+              "ordinal_position": 38,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Incident Time - Unknown",
+              "ordinal_position": 39,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Same Incident ID",
+              "ordinal_position": 40,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "latitude",
+              "ordinal_position": 41,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Latitude  - Unknown",
+              "ordinal_position": 42,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "longitude",
+              "ordinal_position": 43,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Longitude - Unknown",
+              "ordinal_position": 44,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address",
+              "ordinal_position": 45,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Address - Unknown",
+              "ordinal_position": 46,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "city",
+              "ordinal_position": 47,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "City - Unknown",
+              "ordinal_position": 48,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "state",
+              "ordinal_position": 49,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Zip Code",
+              "ordinal_position": 50,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Zip Code - Unknown",
+              "ordinal_position": 51,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Type",
+              "ordinal_position": 52,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Surface",
+              "ordinal_position": 53,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Roadway Description",
+              "ordinal_position": 54,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Posted Speed Limit (MPH)",
+              "ordinal_position": 55,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Posted Speed Limit - Unknown",
+              "ordinal_position": 56,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "lighting",
+              "ordinal_position": 57,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Clear",
+              "ordinal_position": 58,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Snow",
+              "ordinal_position": 59,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Cloudy",
+              "ordinal_position": 60,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Fog/Smoke",
+              "ordinal_position": 61,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Rain",
+              "ordinal_position": 62,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Severe Wind",
+              "ordinal_position": 63,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Unknown",
+              "ordinal_position": 64,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Other",
+              "ordinal_position": 65,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Weather - Other Text",
+              "ordinal_position": 66,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Crash With",
+              "ordinal_position": 67,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Highest Injury Severity",
+              "ordinal_position": 68,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Property Damage?",
+              "ordinal_position": 69,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Pre-Crash Movement",
+              "ordinal_position": 70,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Any Air Bags Deployed?",
+              "ordinal_position": 71,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Was Vehicle Towed?",
+              "ordinal_position": 72,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear Left",
+              "ordinal_position": 73,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Left",
+              "ordinal_position": 74,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front Left",
+              "ordinal_position": 75,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear",
+              "ordinal_position": 76,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Top",
+              "ordinal_position": 77,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front",
+              "ordinal_position": 78,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Rear Right",
+              "ordinal_position": 79,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Right",
+              "ordinal_position": 80,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Front Right",
+              "ordinal_position": 81,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Bottom",
+              "ordinal_position": 82,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "CP Contact Area - Unknown",
+              "ordinal_position": 83,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Pre-Crash Movement",
+              "ordinal_position": 84,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Any Air Bags Deployed?",
+              "ordinal_position": 85,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Was Vehicle Towed?",
+              "ordinal_position": 86,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Were All Passengers Belted?",
+              "ordinal_position": 87,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Precrash Speed (MPH)",
+              "ordinal_position": 88,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Pre-crash Speed - Unknown",
+              "ordinal_position": 89,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear Left",
+              "ordinal_position": 90,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Left",
+              "ordinal_position": 91,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front Left",
+              "ordinal_position": 92,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear",
+              "ordinal_position": 93,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Top",
+              "ordinal_position": 94,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front",
+              "ordinal_position": 95,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Rear Right",
+              "ordinal_position": 96,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Right",
+              "ordinal_position": 97,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Front Right",
+              "ordinal_position": 98,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Bottom",
+              "ordinal_position": 99,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "SV Contact Area - Unknown",
+              "ordinal_position": 100,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - EDR",
+              "ordinal_position": 101,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Police Rpt",
+              "ordinal_position": 102,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Telematics",
+              "ordinal_position": 103,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Complaints",
+              "ordinal_position": 104,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Video",
+              "ordinal_position": 105,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Other",
+              "ordinal_position": 106,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - No Data",
+              "ordinal_position": 107,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Data Availability - Unknown",
+              "ordinal_position": 108,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Law Enforcement Investigating?",
+              "ordinal_position": 109,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Agency",
+              "ordinal_position": 110,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Agency - Unknown",
+              "ordinal_position": 111,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Rep Ent Or Mfr Investigating?",
+              "ordinal_position": 112,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Name",
+              "ordinal_position": 113,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Name - Unknown",
+              "ordinal_position": 114,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Phone",
+              "ordinal_position": 115,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Phone - Unknown",
+              "ordinal_position": 116,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Investigating Officer Email",
+              "ordinal_position": 117,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Inv. Officer Email - Unknown",
+              "ordinal_position": 118,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Within ODD?",
+              "ordinal_position": 119,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Within ODD? - CBI",
+              "ordinal_position": 120,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "narrative",
+              "ordinal_position": 121,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "Narrative - CBI?",
+              "ordinal_position": 122,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "views": []
+    }
+  ]
+}

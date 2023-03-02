@@ -26,6 +26,13 @@
         }
     ],
 
+    "medium": [
+            "id": "m1",
+            "prompt": "how many unique incident reports with level 2 adas were there?",
+            "expected_outputs": ["SELECT COUNT(DISTINCT \"Report ID\") FROM level_2_adas_incident_report"],
+            "schema": "nhtsa_schema.json"
+    ],
+
     "one_test": [
         {
             "id": "onetest",
