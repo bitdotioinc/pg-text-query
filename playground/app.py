@@ -17,7 +17,7 @@ dirname = os.path.dirname(__file__)
 sys.path.append(parent_dir)
 
 from pg_text_query.db_schema import get_db_schema
-from pg_text_query.gen_query import generate_query
+from pg_text_query.gen_query import generate_query, generate_query_chat
 from pg_text_query.prompt import concat_prompt, describe_database
 
 
@@ -98,6 +98,11 @@ We recommend saving these values as environment variables. Fill out the `env_tem
             connection_pool.close()
 
     with tab2:
+
+        st.session_state["model_choice"] = st.radio(
+            "Choose Model",
+            ('Codex', 'ChatGTP'))
+
         st.write(
             """### Initialization Prompt
 
@@ -109,9 +114,15 @@ We recommend saving these values as environment variables. Fill out the `env_tem
             to ensure the user's prompt, specified below, has the desired outcome.*"""
         )
 
+        if st.session_state["model_choice"] == "Codex":
+            default_init_prompt = "-- A PostgreSQL query to return 1 and a PostgreSQL query for {user_input}\nSELECT 1;"
+        elif st.session_state["model_choice"] == "ChatGTP":
+            default_init_prompt = """You are a SQL code translator. Your role is to translate natural language to PostgreSQL. Your only output should be SQL code. Do not include any other text. Only SQL code.
+Translate \"{user_input}\" to a syntactically-correct PostgreSQL query."""
+
         init_prompt = st.text_area(
             label="***Enter initialization Prompt***",
-            value="-- A PostgreSQL query to return 1 and a PostgreSQL query for {user_input}\nSELECT 1;",
+            value=default_init_prompt,
         )
         st.write(
             """### Schema Details
@@ -178,8 +189,13 @@ included in the prompt. Click the "Get Database Schema" button to get schema
             height=250,
         )
 
+
         if st.button("Generate SQL"):
-            st.session_state["sql"] = generate_query(prompt_to_send)
+            if st.session_state["model_choice"] == "Codex":
+                st.session_state["sql"] = generate_query(prompt_to_send)
+            elif st.session_state["model_choice"] == "ChatGTP":
+                st.session_state["sql"] = generate_query_chat(prompt_to_send,
+                                                              system=None)
         st.code(st.session_state["sql"], language="sql")
 
         if st.button("Run SQL"):
