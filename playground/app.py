@@ -101,7 +101,7 @@ We recommend saving these values as environment variables. Fill out the `env_tem
 
         st.session_state["model_choice"] = st.radio(
             "Choose Model",
-            ('Codex', 'ChatGTP'))
+            ('Codex', 'ChatGPT'))
 
         st.write(
             """### Initialization Prompt
@@ -116,7 +116,7 @@ We recommend saving these values as environment variables. Fill out the `env_tem
 
         if st.session_state["model_choice"] == "Codex":
             default_init_prompt = "-- A PostgreSQL query to return 1 and a PostgreSQL query for {user_input}\nSELECT 1;"
-        elif st.session_state["model_choice"] == "ChatGTP":
+        elif st.session_state["model_choice"] == "ChatGPT":
             default_init_prompt = """You are a SQL code translator. Your role is to translate natural language to PostgreSQL. Your only output should be SQL code. Do not include any other text. Only SQL code.
 Translate \"{user_input}\" to a syntactically-correct PostgreSQL query."""
 
@@ -193,7 +193,7 @@ included in the prompt. Click the "Get Database Schema" button to get schema
         if st.button("Generate SQL"):
             if st.session_state["model_choice"] == "Codex":
                 st.session_state["sql"] = generate_query(prompt_to_send)
-            elif st.session_state["model_choice"] == "ChatGTP":
+            elif st.session_state["model_choice"] == "ChatGPT":
                 st.session_state["sql"] = generate_query_chat(prompt_to_send,
                                                               system=None)
         st.code(st.session_state["sql"], language="sql")
