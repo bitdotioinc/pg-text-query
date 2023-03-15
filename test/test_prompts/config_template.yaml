@@ -1,0 +1,22 @@
+name: test_1
+model:
+  type: chat
+  params:
+    temperature: 0.0
+    n: 1
+test_cases:
+  filename: test_prompts.json
+  category: easy
+prompt:
+  template: |-
+    You are a SQL code translator. Your role is to translate natural language to PostgreSQL. Your only output should be SQL code. Do not include any other text. Only SQL code.
+
+    Use the following PostgreSQL database schema:
+
+    {schema}
+  
+    Convert the following to syntactically-correct PostgreSQL query: {user_prompt}.
+    
+log:
+  path: test_1.log
+  format: '%(asctime)s %(levelname)s: %(message)s'
