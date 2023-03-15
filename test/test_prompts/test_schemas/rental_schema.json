@@ -1,0 +1,1299 @@
+{
+  "name": "dliden/ai_bit_io",
+  "description": null,
+  "schemata": [
+    {
+      "name": "public",
+      "description": "standard public schema",
+      "is_foreign": false,
+      "tables": [
+        {
+          "name": "actor",
+          "description": null,
+          "columns": [
+            {
+              "name": "actor_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('actor_actor_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "first_name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "last_name",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 4,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "address",
+          "description": null,
+          "columns": [
+            {
+              "name": "address_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('address_address_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "address2",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "district",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 20,
+              "description": null
+            },
+            {
+              "name": "city_id",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "postal_code",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 10,
+              "description": null
+            },
+            {
+              "name": "phone",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 20,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 8,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "category",
+          "description": null,
+          "columns": [
+            {
+              "name": "category_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('category_category_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 25,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 3,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "city",
+          "description": null,
+          "columns": [
+            {
+              "name": "city_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('city_city_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "city",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "country_id",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 4,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "country",
+          "description": null,
+          "columns": [
+            {
+              "name": "country_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('country_country_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "country",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 3,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "customer",
+          "description": null,
+          "columns": [
+            {
+              "name": "customer_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('customer_customer_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "store_id",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "first_name",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "last_name",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "email",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "address_id",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "activebool",
+              "ordinal_position": 7,
+              "column_default": "true",
+              "is_nullable": "NO",
+              "data_type": "boolean",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "create_date",
+              "ordinal_position": 8,
+              "column_default": "('now'::text)::date",
+              "is_nullable": "NO",
+              "data_type": "date",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 9,
+              "column_default": "now()",
+              "is_nullable": "YES",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "active",
+              "ordinal_position": 10,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "film",
+          "description": null,
+          "columns": [
+            {
+              "name": "film_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('film_film_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "title",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 255,
+              "description": null
+            },
+            {
+              "name": "description",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "release_year",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "language_id",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rental_duration",
+              "ordinal_position": 6,
+              "column_default": "3",
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rental_rate",
+              "ordinal_position": 7,
+              "column_default": "4.99",
+              "is_nullable": "NO",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "length",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "replacement_cost",
+              "ordinal_position": 9,
+              "column_default": "19.99",
+              "is_nullable": "NO",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rating",
+              "ordinal_position": 10,
+              "column_default": "'G'::mpaa_rating",
+              "is_nullable": "YES",
+              "data_type": "USER-DEFINED",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 11,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "special_features",
+              "ordinal_position": 12,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "ARRAY",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "fulltext",
+              "ordinal_position": 13,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "tsvector",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "film_actor",
+          "description": null,
+          "columns": [
+            {
+              "name": "actor_id",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "film_id",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 3,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "film_category",
+          "description": null,
+          "columns": [
+            {
+              "name": "film_id",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "category_id",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 3,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "inventory",
+          "description": null,
+          "columns": [
+            {
+              "name": "inventory_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('inventory_inventory_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "film_id",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "store_id",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 4,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "language",
+          "description": null,
+          "columns": [
+            {
+              "name": "language_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('language_language_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character",
+              "character_maximum_length": 20,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 3,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "payment",
+          "description": null,
+          "columns": [
+            {
+              "name": "payment_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('payment_payment_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "customer_id",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "staff_id",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rental_id",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "amount",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "payment_date",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "rental",
+          "description": null,
+          "columns": [
+            {
+              "name": "rental_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('rental_rental_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rental_date",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "inventory_id",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "customer_id",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "return_date",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "staff_id",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 7,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "staff",
+          "description": null,
+          "columns": [
+            {
+              "name": "staff_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('staff_staff_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "first_name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "last_name",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "address_id",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "email",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "store_id",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "active",
+              "ordinal_position": 7,
+              "column_default": "true",
+              "is_nullable": "NO",
+              "data_type": "boolean",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "username",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "character varying",
+              "character_maximum_length": 16,
+              "description": null
+            },
+            {
+              "name": "password",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 40,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 10,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "picture",
+              "ordinal_position": 11,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bytea",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "store",
+          "description": null,
+          "columns": [
+            {
+              "name": "store_id",
+              "ordinal_position": 1,
+              "column_default": "nextval('store_store_id_seq'::regclass)",
+              "is_nullable": "NO",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "manager_staff_id",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address_id",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "NO",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "last_update",
+              "ordinal_position": 4,
+              "column_default": "now()",
+              "is_nullable": "NO",
+              "data_type": "timestamp without time zone",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "views": [
+        {
+          "name": "actor_info",
+          "description": null,
+          "columns": [
+            {
+              "name": "actor_id",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "first_name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "last_name",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 45,
+              "description": null
+            },
+            {
+              "name": "film_info",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "customer_list",
+          "description": null,
+          "columns": [
+            {
+              "name": "id",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "zip code",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 10,
+              "description": null
+            },
+            {
+              "name": "phone",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 20,
+              "description": null
+            },
+            {
+              "name": "city",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "country",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "notes",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "sid",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "film_list",
+          "description": null,
+          "columns": [
+            {
+              "name": "fid",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "title",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 255,
+              "description": null
+            },
+            {
+              "name": "description",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "category",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 25,
+              "description": null
+            },
+            {
+              "name": "price",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "length",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rating",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "USER-DEFINED",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "actors",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "nicer_but_slower_film_list",
+          "description": null,
+          "columns": [
+            {
+              "name": "fid",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "title",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 255,
+              "description": null
+            },
+            {
+              "name": "description",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "category",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 25,
+              "description": null
+            },
+            {
+              "name": "price",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "length",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "rating",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "USER-DEFINED",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "actors",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "sales_by_film_category",
+          "description": null,
+          "columns": [
+            {
+              "name": "category",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 25,
+              "description": null
+            },
+            {
+              "name": "total_sales",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "sales_by_store",
+          "description": null,
+          "columns": [
+            {
+              "name": "store",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "manager",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "total_sales",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "numeric",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        },
+        {
+          "name": "staff_list",
+          "description": null,
+          "columns": [
+            {
+              "name": "id",
+              "ordinal_position": 1,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "integer",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "name",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": null
+            },
+            {
+              "name": "address",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "zip code",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 10,
+              "description": null
+            },
+            {
+              "name": "phone",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 20,
+              "description": null
+            },
+            {
+              "name": "city",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "country",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "character varying",
+              "character_maximum_length": 50,
+              "description": null
+            },
+            {
+              "name": "sid",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "smallint",
+              "character_maximum_length": null,
+              "description": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
