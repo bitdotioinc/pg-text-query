@@ -1,9 +1,10 @@
-name: test_1
+test_name: test_1
 model:
   type: chat
   params:
     temperature: 0.0
     n: 1
+    stop: null
 test_cases:
   filename: test_prompts.json
   category: easy
