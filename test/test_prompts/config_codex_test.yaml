@@ -1,0 +1,19 @@
+name: test_codex
+model:
+  type: single
+  params:
+    temperature: 0.0
+    n: 1
+    stop: ';'
+test_cases:
+  filename: test_prompts.json
+  category: easy
+prompt:
+  template: |-
+    -- language PostgreSQL
+    -- schema:
+    {schema}
+
+    -- be sure to properly format and quote identifiers.
+    -- A postgreSQL query to SELECT 1 and a syntactically-correct PostgreSQL query to {user_prompt}
+    SELECT 1;
