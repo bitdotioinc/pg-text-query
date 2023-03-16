@@ -45,7 +45,7 @@
         },
         {
             "id": "e7",
-            "prompt": "drop the 2021 combine and draft table if it exists.",
+            "prompt": "drop the 2021 combine and draft table if it exists",
             "expected_outputs": ["DROP TABLE IF EXISTS \"bitdotio/nfl_combine\".\"2021_combine_and_draft\""],
             "schema": "nfl_combine_schema.json",
             "explanation": "drop table"

@@ -112,7 +112,6 @@ def generate_query_chat(prompt: str, validate_sql: bool = False, system: t.Optio
         messages=query,
         **{**CHAT_COMPLETION_CONFIG, **kwargs},
     )
-
     generated_query = response["choices"][0]["message"]["content"]
 
 
