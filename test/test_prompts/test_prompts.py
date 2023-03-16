@@ -29,12 +29,30 @@ root_dir = os.path.dirname(test_dir)
 
 
 def load_schema(schema_path):
+    """
+    Loads a JSON schema file and returns its contents.
+
+    Parameters:
+        schema_path (str): The path to the schema file.
+
+    Returns:
+        dict: The contents of the schema file.
+    """
     with open(schema_path) as f:
         schema = json.load(f)
     return schema
 
 
 def format_sql(sql_code):
+    """
+    Formats SQL code using the pg_format command-line tool.
+
+    Parameters:
+        sql_code (str): The SQL code to format.
+
+    Returns:
+        str: The formatted SQL code.
+    """
     cmd = ["pg_format", "-s2", "-g", "-n"]
     p = subprocess.Popen(
         cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -44,19 +62,49 @@ def format_sql(sql_code):
 
 
 def get_test_data(category="easy", filename="test_prompts.json"):
+    """
+    Loads a JSON file containing test prompts and returns the prompts for a specified category.
+
+    Parameters:
+        category (str): The category of test prompts to retrieve. Defaults to "easy".
+        filename (str): The name of the JSON file containing the test prompts. Defaults to "test_prompts.json".
+
+    Returns:
+        list: The test prompts for the specified category.
+    """
     prompts_file = os.path.join(root_dir, "test_prompts", filename)
     with open(prompts_file) as f:
         data = json.load(f)
         return data[category]
 
 def load_config(config_file):
-    # Load config from YAML file
+    """
+    Loads a YAML configuration file and returns its contents.
+
+    Parameters:
+        config_file (str): The path to the configuration file.
+
+    Returns:
+        dict: The contents of the configuration file.
+    """
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
     return config
 
 
 def results_table(results):
+    """
+    Takes in a dictionary of results containing the user prompt, generated SQL query, 
+    expected SQL query, and the result of the query execution, and returns a formatted
+    table displaying the results. The table includes the ID, user prompt, generated SQL,
+    expected SQL, and the result of the execution.
+
+    Parameters:
+    results (dict): A dictionary containing the results of a SQL query execution.
+
+    Returns:
+    table (PrettyTable): A formatted table object displaying a summary of the test results
+    """
     table = PrettyTable()
     table.field_names = ["ID", "User Prompt", "Generated SQL", "Expected SQL", "Result"]
     for result in results["results"]:
@@ -81,7 +129,26 @@ def results_table(results):
 
 def test_prompts(prompt_template, test_case_file, category="easy",
                  verbose=False, type="single", model_params: dict={}):
-                 
+    """
+    Executes SQL query test cases using the provided prompt template and test data.
+    The function generates SQL queries using the prompt template and compares the
+    results to the expected outputs provided in the test data.
+
+    Parameters:
+    prompt_template (str): A string representing a SQL prompt template.
+    test_case_file (str): The name of the test case file to use.
+    category (str): The difficulty category of the test cases. Default is "easy".
+    verbose (bool): A flag indicating whether to print the log results. Default is False.
+    type (str): The type of completion method to use. Default is "single".
+    model_params (dict): A dictionary containing additional model parameters for
+    generating SQL queries. Default is an empty dictionary.
+
+    Returns:
+    log_results (dict): A dictionary containing the log results of the test cases.
+    The dictionary includes the task prompt, model parameters, test results, total
+    number of test cases, and number of successful test cases.
+    """
+     
     log_results = {"task_prompt": prompt_template,
                    "model_params":model_params,
                    "results": []}
@@ -177,8 +244,6 @@ if __name__ == "__main__":
     log_file = config.get("log", {}).get("path", None)
     model_type = config.get("model", {}).get("type", "chat")
     model_params = config.get("model", {}).get("params", {})
-
-    print(config)
 
     results = test_prompts(
         prompt_template=prompt_template,
