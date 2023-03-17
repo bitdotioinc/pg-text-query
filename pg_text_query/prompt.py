@@ -29,6 +29,39 @@ def get_default_prompt(
         "SELECT 1;",
     )
 
+def get_custom_prompt(
+        task_prompt: str,
+        user_prompt: str,
+        db_schema: t.Dict[t.Any, t.Any],
+        include_schema: bool = True,
+        include_types: bool = True,
+        add_select_1: bool = True,
+        ) -> str:
+    """construct a Postgres query prompt from a task prompt, user prompt, and db schema.
+
+    See pg_text_query.db_schema.py for the expected schema data format and a
+    utility for extracting schema data in that format from an existing Postgres
+    database.
+
+    All prompts currently start with "--Language PostgreSQL" and the schema, if
+    included, follows this language specification line.
+
+    Include a space or newline at the end of task_prompt depending on whether you want
+    the user_prompt on a new line.
+    """
+    task_user_prompt = task_prompt + user_prompt
+    
+    prompt_components = ["-- Language PostgreSQL\n",
+                         describe_database(db_schema, include_types) if include_schema else '',
+                         task_user_prompt,
+                         ]
+    if add_select_1:
+        prompt_components.append("SELECT 1;")
+    
+    return concat_prompt(*prompt_components)
+
+        
+
 
 def concat_prompt(*args: str) -> str:
     return "\n".join(args)

@@ -1,0 +1,108 @@
+{
+    "easy": [
+        {
+            "id": "e1",
+            "prompt": "What is the average bill length for Adelie penguins?",
+            "expected_outputs": ["SELECT AVG(bill_length_mm) FROM penguins WHERE species = 'Adelie'"],
+            "schema": "penguin_schema.json",
+            "explanation": "Simple function on one column"
+        },
+        {
+            "id": "e2",
+            "prompt": "What is the maximum body mass for Chinstrap penguins?",
+            "expected_outputs": ["SELECT MAX(body_mass_g) FROM penguins WHERE species = 'Chinstrap'",
+                                 "SELECT MAX(body_mass_g) FROM penguins WHERE species = 'Chinstrap';"],
+            "schema": "penguin_schema.json",
+            "explanation": "Simple function on one column with single WHERE clause"
+        },
+        {
+            "id": "e3",
+            "prompt": "What is the total number of penguins in the dataset?",
+            "expected_outputs": ["SELECT COUNT(*) FROM penguins"],
+            "schema": "penguin_schema.json",
+            "explanation": "Simple function on one column"
+        },
+        {
+            "id": "e4",
+            "prompt": "find the mean atmospheric co2 in 1997",
+            "expected_outputs": ["SELECT mean FROM annual WHERE year = 1997"],
+            "schema": "noaa_co2_schema.json",
+            "explanation": "Simple filtering with WHERE. Must choose from multiple tables."
+        },
+        {
+            "id": "e5",
+            "prompt": "what was the mean atmospheric co2 in 1997?",
+            "expected_outputs": ["SELECT mean FROM annual WHERE year = 1997"],
+            "schema": "noaa_co2_schema.json",
+            "explanation": "Rephrased e5 as a question"
+        },
+        {
+            "id": "e6",
+            "prompt": "return all values in the table",
+            "expected_outputs": ["SELECT * FROM \"bitdotio/nfl_combine\".\"2021_combine_and_draft\""],
+            "schema": "nfl_combine_schema.json",
+            "explanation": "correctly quote schema name"
+        },
+        {
+            "id": "e7",
+            "prompt": "drop the 2021 combine and draft table if it exists",
+            "expected_outputs": ["DROP TABLE IF EXISTS \"bitdotio/nfl_combine\".\"2021_combine_and_draft\""],
+            "schema": "nfl_combine_schema.json",
+            "explanation": "drop table"
+        },
+        {
+            "id": "e8",
+            "prompt": "Delete all entries from the 2021 combine and draft table where the position is 'WR'",
+            "expected_outputs": ["DELETE FROM \"bitdotio/nfl_combine\".\"2021_combine_and_draft\" WHERE position = 'WR'"],
+            "schema": "nfl_combine_schema.json",
+            "explanation": "delete with simple where clause"
+        },
+        {
+            "id": "e9",
+            "prompt": "Change position to 'Wide Receiver' where position is 'WR'",
+            "expected_outputs": ["UPDATE \"bitdotio/nfl_combine\".\"2021_combine_and_draft\" SET position = 'Wide Receiver' WHERE position = 'WR'"],
+            "schema": "nfl_combine_schema.json",
+            "explanation": "Update (understanding that 'change' means 'update') with simple where clause"
+        },
+        {
+            "id": "e10",
+            "prompt": "What are the names of all of the action films?",
+            "expected_outputs": ["SELECT title FROM film INNER JOIN film_category ON film.film_id = film_category.film_id INNER JOIN category ON film_category.category_id = category.category_id WHERE category.name = 'Action';"],
+            "schema": "rental_schema.json",
+            "explanation": "JOIN example"
+        }
+        
+    ],
+
+    "medium": [
+        {
+            "id": "m1",
+            "prompt": "how many unique incident reports with level 2 adas were there?",
+            "expected_outputs": ["SELECT COUNT(DISTINCT \"Report ID\") FROM level_2_adas_incident_report"],
+            "schema": "nhtsa_schema.json",
+            "explanation": "Count unique and correctly format column name with quotes"
+        },
+        {
+            "id": "m2",
+            "prompt": "return the mean atmospheric CO2 in May 1997.",
+            "expected_outputs": ["SELECT mean FROM annual WHERE year = 1997 AND month = 5"],
+            "schema": "noaa_co2_schema.json",
+            "explanation": "Needs to use the 'monthly' table and send 'May' as '5'. Specifies table."
+        },
+        {
+            "id": "m3",
+            "prompt": "return the mean atmospheric CO2 in May 1997.",
+            "expected_outputs": ["SELECT mean FROM annual WHERE year = 1997 AND month = 5"],
+            "schema": "noaa_co2_schema.json",
+            "explanation": "m2 but does not specify table"
+        }
+    ],
+
+    "one_test": [
+        {
+            "id": "onetest",
+            "prompt": "What is the total number of penguins in the dataset?",
+            "expected_outputs": ["SELECT COUNT(*) FROM penguins"],
+            "schema": "penguin_schema.json"
+        }]
+}

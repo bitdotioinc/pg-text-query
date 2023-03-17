@@ -1,0 +1,91 @@
+{
+  "name": "bitdotio/palmerpenguins",
+  "schemata": [
+    {
+      "name": "public",
+      "description": "standard public schema",
+      "is_foreign": false,
+      "tables": [
+        {
+          "name": "penguins",
+          "description": "Measurements of 344 penguins of three different species from three islands in the Palmer archipelago.",
+          "columns": [
+            {
+              "name": "species",
+              "ordinal_position": 2,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": "penguin species (Ad\u00e9lie, Chinstrap, or\u00a0Gentoo)"
+            },
+            {
+              "name": "island",
+              "ordinal_position": 3,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": "island in Paler archipelago (Biscoe, Dream, or Torgersen)"
+            },
+            {
+              "name": "bill_length_mm",
+              "ordinal_position": 4,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "penguin bill length (mm)"
+            },
+            {
+              "name": "bill_depth_mm",
+              "ordinal_position": 5,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "double precision",
+              "character_maximum_length": null,
+              "description": "penguin bill depth (mm)"
+            },
+            {
+              "name": "flipper_length_mm",
+              "ordinal_position": 6,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "penguin flipper length (mm)"
+            },
+            {
+              "name": "body_mass_g",
+              "ordinal_position": 7,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "penguin body mass (g)"
+            },
+            {
+              "name": "sex",
+              "ordinal_position": 8,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "text",
+              "character_maximum_length": null,
+              "description": "sex of penguin (male, female)"
+            },
+            {
+              "name": "year",
+              "ordinal_position": 9,
+              "column_default": null,
+              "is_nullable": "YES",
+              "data_type": "bigint",
+              "character_maximum_length": null,
+              "description": "study year (2007, 2008, or 2007)"
+            }
+          ]
+        }
+      ],
+      "views": []
+    }
+  ]
+}
